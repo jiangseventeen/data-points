@@ -1,0 +1,6 @@
+@mixin list-style($direaction) {
+  @if $direaction { float: $direaction };
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+}
