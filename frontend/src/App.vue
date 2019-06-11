@@ -2,12 +2,14 @@
   <div id="app">
     <the-top-heading/>
     <the-left-sidebar/>
+    <the-center-canvas/>
     <the-right-sidebar/>
     <the-footer/>
   </div>
 </template>
 
 <script>
+import TheCenterCanvas from './layout/TheCenterCanvas';
 import TheTopHeading from './layout/TheTopHeading';
 import TheLeftSidebar from './layout/TheLeftSidebar';
 import TheRightSidebar from './layout/TheRightSidebar';
@@ -16,6 +18,7 @@ import TheFooter from './layout/TheFooter';
 export default {
   name: 'app',
   components: {
+    TheCenterCanvas,
     TheTopHeading,
     TheLeftSidebar,
     TheRightSidebar,
@@ -24,7 +27,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scope>
+@import "src/assets/scss/mixins/_scrollbar";
+
 html, body {
   height: 100%;
   margin: 0;
