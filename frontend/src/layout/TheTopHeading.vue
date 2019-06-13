@@ -84,6 +84,8 @@ export default {
   height: $top-heading-height;
   color: $primary-text-color;
   background: $top-heading-background;
+  border-bottom: 1px solid #2f3534;
+  z-index: 1;
 
   @include clearfix();
 
