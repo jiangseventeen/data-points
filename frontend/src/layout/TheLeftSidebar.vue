@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import Title from '../components/base/Title';
+import Title from '../components/base/Title'
 
 export default {
   name: 'TheLeftSidebar',
