@@ -1,6 +1,6 @@
 <template>
   <div class="right-sidebar">
-    <div class="tabs">
+    <div v-if="isShowTabs" class="tabs">
       <div
         v-for="tab in tabs"
         :key="tab.value"
@@ -12,16 +12,23 @@
         </el-tooltip>
       </div>
     </div>
+    <component
+      :activeKey="activeKey"
+      :is="currentSettingComponent"
+      :data="currentComponentData"
+    />
   </div>
 </template>
 
 <script>
 import Icon from '../components/base/Icon';
+import PageSetting from './PageSetting';
 
 export default {
   name: 'TheRightSidebar',
   data () {
     return {
+      activeKey: 'config',
       tabs: [
         { value: 'config', label: '配置', icon: 'fa-sliders-h', isActive: true },
         { value: 'data', label: '数据', icon: 'fa-code', isActive: false },
@@ -29,14 +36,34 @@ export default {
       ]
     }
   },
+  computed: {
+    currentSettingComponent() {
+        let checkedComponents = this.$store.getters.selectedComponentList
+        if (checkedComponents.length > 1) return 'ComponentsLayout'
+        else if (checkedComponents.length > 0) return checkedComponents[0].name + 'Config'
+        else return 'PageSetting'
+    },
+    isShowTabs () {
+      return (
+        this.currentSettingComponent !== 'ComponentsLayout' &&
+          this.currentSettingComponent !== 'PageSetting'
+      )
+    },
+    currentComponentData () {
+      let selected = this.$store.getters.selectedComponentList
+      return selected.length === 1 ? selected[0].data : null
+    }
+  },
   methods: {
     handleTabClick (tab) {
+      this.activeKey = tab.value
       this.tabs.forEach(n => n.isActive = false)
       tab.isActive = true
     }
   },
   components: {
-    Icon
+    Icon,
+    PageSetting
   }
 }
 </script>
