@@ -6,14 +6,14 @@
 
     <div class="nav">
       <ul class="nav-list">
-        <li v-for="(navItem, index) in dpComponents" :key="index">
+        <li v-for="(navItem, index) in components" :key="index">
           <Icon :type="navItem.icon"/>
           <div class="components-wrap">
             <ul class="components-list">
               <NavItem
                 :key="component.id"
                 v-for="component in navItem.components"
-                :imgSrc="component.image"
+                :imgSrc="component.thumbnail"
                 :title="component.title"
               />
             </ul>
@@ -38,15 +38,13 @@
 <script>
 import Icon from "../components/base/Icon";
 import NavItem from "../components/base/NavItem";
-import nav from "../constants/nav";
-import dpComponents from "../constants/components";
+import components from "../constants/components";
 
 export default {
   name: "TheTopHeading",
   data() {
     return {
-      nav,
-      dpComponents
+      components
     };
   },
   components: {

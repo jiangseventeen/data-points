@@ -22,11 +22,12 @@ export default {
 
   img {
     width: 80px;
+    display: block;
     border: 1px solid transparent;
   }
 
   h6 {
-    margin: 0;
+    margin: 10px 0;
     line-height: 1.2;
     font-weight: 300;
   }
