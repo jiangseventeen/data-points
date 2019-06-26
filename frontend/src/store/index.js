@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import _ from 'lodash'
 
 Vue.use(Vuex)
 
@@ -45,6 +46,22 @@ const store = new Vuex.Store({
     // 设置背景
     setBackground: (state, background) => {
       Object.assign(state.page.background, background)
+    },
+    // 添加组件
+    insertComponent: (state, component) => {
+      if(component.enabled) {
+        state.renderComponentList.push({
+          componentId: component.id,
+          id: _.uniqueId(),
+          name: component.name,
+          thumbnail: component.thumbnail,
+          hover: false,
+          checked: false,
+          config: JSON.parse(JSON.stringify(component.config)),
+          data: JSON.parse(JSON.stringify(component.data)),
+          interaction: JSON.parse(JSON.stringify(component.interaction))
+        })
+      }
     }
   }
 });

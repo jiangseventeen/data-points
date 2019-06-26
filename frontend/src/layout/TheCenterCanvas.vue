@@ -2,18 +2,22 @@
   <div class="center-canvas" :style="[centerPadding]">
     <div class="canvas" :style="[pageSize, pageScale, background]">
       <component
-        v-for="cp in components"
-        :is="cp.name"
-        :key="cp.id"
-        @click.native="selectComponent(cp)"
-        :class="{hover: cp.hover}"
-        :data="cp.data"
+        v-for="v in components"
+        :is="v.name"
+        :key="v.id"
+        @click.native="selectComponent(v)"
+        :class="{hover: v.hover}"
+        :config="v.config"
+        :data="v.data"
+        :interaction="v.interaction"
       />
     </div>
   </div>
 </template>
 
 <script>
+import CommonTitle from '../components/datapoints/text/CommonTitle/1.0.0/CommonTitle'
+
 export default {
   name: "TheCenterCanvas",
   data () {
@@ -93,6 +97,9 @@ export default {
      
       this.$store.commit('setPageScale', scale)
     }
+  },
+  components: {
+    CommonTitle
   },
   created () {
     this.pageResize();

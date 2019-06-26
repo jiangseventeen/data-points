@@ -10,12 +10,15 @@
           <Icon :type="navItem.icon"/>
           <div class="components-wrap">
             <ul class="components-list">
-              <NavItem
+              <li
+                class="nav-item"
                 :key="component.id"
+                @click="handleAddComponent(component)"
                 v-for="component in navItem.components"
-                :imgSrc="component.thumbnail"
-                :title="component.title"
-              />
+              >
+                <img :src="component.thumbnail"/>
+                <h6 v-text="component.title"></h6>
+              </li>
             </ul>
           </div>
         </li>
@@ -37,7 +40,6 @@
 
 <script>
 import Icon from "../components/base/Icon";
-import NavItem from "../components/base/NavItem";
 import components from "../constants/components";
 
 export default {
@@ -47,9 +49,13 @@ export default {
       components
     };
   },
+  methods: {
+    handleAddComponent (component) {
+      this.$store.commit('insertComponent', component)
+    }
+  },
   components: {
     Icon,
-    NavItem
   }
 };
 </script>
@@ -132,6 +138,30 @@ export default {
           
           .components-list {
             @include nav-list();
+
+            .nav-item {
+              @include list-style(left);
+              margin: 10px;
+
+              img {
+                width: 80px;
+                display: block;
+                border: 1px solid transparent;
+              }
+
+              h6 {
+                margin: 10px 0;
+                line-height: 1.2;
+                font-weight: 300;
+              }
+
+              &:hover {
+                color: $primary-highlight;
+                img {
+                  border: 1px solid $primary-highlight;
+                }
+              }
+            }
           }
         }
       }
