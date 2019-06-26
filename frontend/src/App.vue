@@ -27,8 +27,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss">
 @import "src/assets/scss/mixins/_scrollbar";
+@import "src/assets/scss/common.scss";
 
 html, body {
   height: 100%;

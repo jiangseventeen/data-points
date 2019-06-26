@@ -6,7 +6,7 @@
         <el-slider v-model="pageScale" :show-tooltip="true"></el-slider>
       </div>
       <span class="icon-button-add" @click="zoomUp"><i class="fa fa-search-plus"></i></span>
-      <span class="footer-size-text" v-text="pageScaleText + '%'"></span>
+      <span class="footer-size-text" v-text="pageScale + '%'"></span>
     </div>
   </div>
 </template>
