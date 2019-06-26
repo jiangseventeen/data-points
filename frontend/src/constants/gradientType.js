@@ -1,6 +1,6 @@
-export default {
-  1: '无渐变',
-  2: '水平渐变',
-  3: '垂直渐变',
-  4: '径向渐变'
-}
+export default [
+  { value: 1, label: '无渐变'},
+  { value: 2, label: '水平渐变'},
+  { value: 3, label: '垂直渐变'},
+  { value: 4, label: '径向渐变'},
+]
