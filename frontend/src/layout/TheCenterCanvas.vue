@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "theCenterCanvas",
+  name: "TheCenterCanvas",
   data () {
     return {
       centerPadding: {}
@@ -79,7 +79,7 @@ export default {
       let viewportWdith = window.innerWidth
       let viewportHeight = window.innerHeight
 
-      let centerWidth = viewportWdith - 220 - 300
+      let centerWidth = viewportWdith - 220 - 340
       let centerHeight = viewportHeight - 85
 
       let pageWidth = this.$store.state.page.width;
