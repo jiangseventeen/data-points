@@ -1,0 +1,30 @@
+@import "./variables";
+
+
+/* Color
+-------------------------- */
+$--color-white: $primary-background-color !default;
+$--color-primary: $primary-highlight !default;
+$--border-color-base: #282f3a !default;
+$--color-text-regular: $primary-color !default;
+
+// select
+$--select-border-color-hover: $primary-highlight !default;
+$--select-option-hover-background: #30353a !default;
+$--select-dropdown-border: solid 1px $primary-highlight !default;
+
+// collapse
+$--collapse-content-background-color: $second-background-color !default;
+
+// popover
+$--popover-border-color: $primary-highlight !default;
+
+$--color-text-primary: #bcc9d4 !default;
+$--border-color-lighter: #2f3534 !default;
+
+// border
+$--border-radius-base: 2px !default;
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";

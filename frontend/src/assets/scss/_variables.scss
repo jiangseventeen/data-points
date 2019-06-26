@@ -1,8 +1,9 @@
 // the forecolor and backgroundcolor.
 $primary-color: rgb(188, 201, 212);
-$primary-background-color: rgb(27, 31, 30);
+$primary-background-color: #212427;
+$second-background-color: #15171a;
 $primary-text-color: $primary-color;
-$primary-highlight: #24b1ff;
+$primary-highlight: #00e5ff;
 
 // layout
 $top-heading-background: $primary-background-color;
@@ -12,7 +13,7 @@ $bottom-footer-background: $primary-background-color;
 
 $top-heading-height: 45px;
 $left-sidebar-width: 220px;
-$right-sidebar-width: 300px;
+$right-sidebar-width: 340px;
 $bottom-footer-height: 40px;
 
 
