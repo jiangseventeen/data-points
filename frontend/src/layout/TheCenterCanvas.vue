@@ -1,21 +1,37 @@
 <template>
-  <div class="center-canvas" :style="[centerPadding]">
-    <div class="canvas" :style="[pageSize, pageScale, background]">
+  <div
+    class="center-canvas" 
+    :style="[centerPadding]"
+    @click.self.stop="unselectComponent"
+  >
+    <div
+      class="canvas"
+      :style="[pageSize, pageScale, background]"
+      @click.self.stop="unselectComponent"
+    >
       <component
         v-for="v in components"
         :is="v.name"
-        :key="v.id"
-        @click.native="selectComponent(v)"
+        :key="'v' + v.id"
+        @click.native.stop="selectComponent(v)"
         :class="{hover: v.hover}"
         :config="v.config"
         :data="v.data"
         :interaction="v.interaction"
+      />
+      <transform-tool
+        :key="n.id"
+        v-for="n in selectedComponents"
+        :dataSrc="n"
+        @mouseenter.native="mouseIn(n)"
+        @mouseleave.native="mouseOut(n)"
       />
     </div>
   </div>
 </template>
 
 <script>
+import TransformTool from './TransformTool'
 import CommonTitle from '../components/datapoints/text/CommonTitle/1.0.0/CommonTitle'
 
 export default {
@@ -74,11 +90,27 @@ export default {
     components () {
       return this.$store.state.renderComponentList
     },
-    checkedComponents () {
-      return this.$store.state.checkedComponentList
-    }
+    selectedComponents () {
+      return this.$store.getters.selectedComponentList
+    },
   },
   methods: {
+    // 取消全部组件选中状态
+    unselectComponent () {
+      this.$store.commit('unselectComponent')
+    },
+    // 选中某个组件
+    selectComponent (component) {
+      this.$store.commit('selectComponent', component)
+    },
+    // 鼠标进入
+    mouseIn (item) {
+      this.$store.commit('hoverComponent', item)
+    },
+    // 鼠标离开
+    mouseOut (item) {
+      this.$store.commit('unhoverComponent', item)
+    },
     pageResize () {
       let viewportWdith = window.innerWidth
       let viewportHeight = window.innerHeight
@@ -96,10 +128,12 @@ export default {
       }
      
       this.$store.commit('setPageScale', scale)
-    }
+    },
+
   },
   components: {
-    CommonTitle
+    CommonTitle,
+    TransformTool
   },
   created () {
     this.pageResize();

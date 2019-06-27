@@ -53,3 +53,29 @@
 .dp-component {
   position: absolute;
 }
+
+/* components base style in canvas */
+.dp-component {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+}
+.dp-component:hover:after, .dp-component.hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,192,222,.2);
+  border: 1px solid #419bf9;
+}
+.dp-charts-container {
+  width: 100%;
+  height: 100%;
+}

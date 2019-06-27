@@ -23,6 +23,7 @@
 <script>
 import Icon from '../components/base/Icon';
 import PageSetting from './PageSetting';
+import CommonTitleConfig from '../components/datapoints/text/CommonTitle/1.0.0/CommonTitleConfig'
 
 export default {
   name: 'TheRightSidebar',
@@ -51,7 +52,7 @@ export default {
     },
     currentComponentData () {
       let selected = this.$store.getters.selectedComponentList
-      return selected.length === 1 ? selected[0].data : null
+      return selected.length === 1 ? selected[0].config : null
     }
   },
   methods: {
@@ -63,7 +64,8 @@ export default {
   },
   components: {
     Icon,
-    PageSetting
+    PageSetting,
+    CommonTitleConfig
   }
 }
 </script>
