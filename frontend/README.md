@@ -1,29 +1,61 @@
-# frontend
+# Data-Points 前端项目
 
-## Project setup
-```
-npm install
-```
+Project is loading...
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## todo
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### 操作类
+- [ ] 组件图层排序功能（包括拖拽排序、点击排序、置顶置底、上移下移等）
+- [ ] 图层分组功能
+- [ ] 图层（多选|分组）后的放置操作
+- [ ] 图层锁定
+- [ ] 鼠标右键快捷菜单操作
+- [ ] 参考线
+- [ ] 标尺
+- [ ] 大屏预览页|展示页
+- [ ] 画布鹰眼
 
-### Run your tests
-```
-npm run test
-```
+### 组件类
+- [ ] 组件按版本加载
+- [ ] 图表-基本柱状图
+- [ ] 图表-基本折线图
+- [ ] 图表-饼图|环比图
+- [ ] 图表-散点图
+- [ ] 图表-雷达图
+- [ ] 图表-复合图表
+- [ ] 地理-GeoJSON地图
+- [ ] 地理-web地图
+- [ ] 地理-三维地球
+- [ ] 地理-区域热点图
+- [ ] 媒体-图片
+- [ ] 媒体-轮播
+- [ ] 媒体-音频播放
+- [ ] 媒体-视频播放
+- [ ] 文本-通用标题
+- [ ] 文本-段落
+- [ ] 文本-计数器|翻牌器
+- [ ] 文本-滚动列表
+- [ ] 文本-表格
+- [ ] 文本-消息轮播
+- [ ] 文本-日期|时间
+- [ ] 装饰-字体图标
+- [ ] 装饰-边框
+- [ ] 装饰-嵌入页
+- [ ] 装饰-背景块
+- [ ] 交互-画布切换
+- [ ] 交互-滚动Tab页
+- [ ] 交互-时间轴
+- [ ] 交互-进度条
 
-### Lints and fixes files
-```
-npm run lint
-```
+### UI类
+- [ ] 统一页面UI风格
+- [ ] 统一配置表单UI风格
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## doing
+- [ ] 组件图层排序
+
+## done
+- [x] ~~画布配置操作~~
+- [x] ~~单个组件缩放|拖拽放置操作~~
+- [x] ~~组件按照最小栅格距离移动操作~~
+- [x] ~~通用标题组件bata~~
