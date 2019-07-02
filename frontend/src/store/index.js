@@ -58,6 +58,7 @@ const store = new Vuex.Store({
           hover: false,
           selected: false,
           locked: false,
+          isDrop: false,
           name: component.name,
           title: component.title,
           thumbnail: component.thumbnail,
@@ -123,6 +124,18 @@ const store = new Vuex.Store({
       renderComponentList[indexs].selected = false
     },
 
+    /**
+     * 按照指定位置移动图层顺序
+     * 
+     * @param {Number} from 被移动元素位置
+     * @param {Number} to 目标位置
+     */
+    layerMove: (state, position) => {
+      let { from, to } = position
+      let renderComponentList = state.renderComponentList
+
+      renderComponentList.splice(to, 0, renderComponentList.splice(from, 1)[0])
+    }
 
   }
 });
