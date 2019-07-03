@@ -61,6 +61,7 @@ const store = new Vuex.Store({
           isDrop: false,
           name: component.name,
           title: component.title,
+          version: component.version,
           thumbnail: component.thumbnail,
           config: JSON.parse(JSON.stringify(component.config)),
           data: JSON.parse(JSON.stringify(component.data)),

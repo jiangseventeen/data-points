@@ -6,10 +6,10 @@ import decoration from './decoration'
 import interaction from './interaction'
 
 export default [
-  { title: '系统图表', icon: 'fa-chart-bar', components: charts },
-  { title: '地理', icon: 'fa-map', components: geography },
-  { title: '媒体', icon: 'fa-film', components: media },
-  { title: '文本', icon: 'fa-font', components: text },
-  { title: '装饰性', icon: 'fa-palette', components: decoration },
-  { title: '交互', icon: 'fa-clone', components: interaction },
+  { title: '系统图表', icon: 'bar-chart', components: charts },
+  { title: '地理', icon: 'globe', components: geography },
+  { title: '媒体', icon: 'film', components: media },
+  { title: '文本', icon: 'font', components: text },
+  { title: '装饰性', icon: 'diamond', components: decoration },
+  { title: '交互', icon: 'chain', components: interaction },
 ]
