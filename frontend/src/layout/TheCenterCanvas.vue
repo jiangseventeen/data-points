@@ -11,7 +11,7 @@
     >
       <component
         v-for="v in components"
-        :is="v.name"
+        :is="`${v.name}-${v.version}`"
         :key="'v' + v.id"
         @click.native.stop="selectComponent(v)"
         :class="{hover: v.hover}"
@@ -32,7 +32,6 @@
 
 <script>
 import TransformTool from './TransformTool'
-import CommonTitle from '../components/datapoints/text/CommonTitle/1.0.0/CommonTitle'
 
 export default {
   name: "TheCenterCanvas",
@@ -132,7 +131,6 @@ export default {
 
   },
   components: {
-    CommonTitle,
     TransformTool
   },
   created () {

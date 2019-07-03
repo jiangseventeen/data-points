@@ -23,7 +23,6 @@
 <script>
 import Icon from '../components/base/Icon';
 import PageSetting from './PageSetting';
-import CommonTitleConfig from '../components/datapoints/text/CommonTitle/1.0.0/CommonTitleConfig'
 
 export default {
   name: 'TheRightSidebar',
@@ -41,7 +40,7 @@ export default {
     currentSettingComponent() {
         let checkedComponents = this.$store.getters.selectedComponentList
         if (checkedComponents.length > 1) return 'ComponentsLayout'
-        else if (checkedComponents.length > 0) return checkedComponents[0].name + 'Config'
+        else if (checkedComponents.length > 0) return `${checkedComponents[0].name}Config-${checkedComponents[0].version}` 
         else return 'PageSetting'
     },
     isShowTabs () {
@@ -65,7 +64,6 @@ export default {
   components: {
     Icon,
     PageSetting,
-    CommonTitleConfig
   }
 }
 </script>
