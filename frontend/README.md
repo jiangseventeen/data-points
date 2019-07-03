@@ -2,6 +2,26 @@
 
 Project is loading...
 
+## 启动
+
+```sh
+# clone 仓库
+$ git clone https://github.com/jiangseventeen/data-points.git
+
+# 进入前端项目
+$ cd frontend
+
+# 安装依赖包 （可）
+$ npm install
+
+# 或使用cnpm安装，npm和cnpm两种方式二选一
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+$ cnpm install
+
+# 启动
+$ npm run serve
+```
+
 ## todo
 
 ### 操作类
