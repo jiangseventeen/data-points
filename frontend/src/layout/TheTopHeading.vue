@@ -28,10 +28,10 @@
     <div class="opts">
       <ul class="opts-list">
         <li>
-          <Icon type="fa-question-circle"/>
+          <Icon type="question-circle"/>
         </li>
         <li>
-          <Icon type="fa-laptop-code"/>
+          <Icon type="laptop"/>
         </li>
       </ul>
     </div>

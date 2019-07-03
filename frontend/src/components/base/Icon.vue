@@ -1,5 +1,5 @@
 <template>
-  <i :class="['fas', type]"></i>
+  <i :class="['fa', `fa-${type}`]"></i>
 </template>
 
 <script>
@@ -9,4 +9,4 @@ export default {
 }
 </script>
 
-<style scope src="@fortawesome/fontawesome-free/css/all.css">
+<style scope src="font-awesome/css/font-awesome.css">
