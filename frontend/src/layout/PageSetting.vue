@@ -84,7 +84,6 @@
 
 <script>
 import Title from "../components/base/Title"
-import DpColor from '../components/base/DpColor'
 import gradientTypeOption from "../constants/gradientType"
 
 export default {
@@ -173,8 +172,7 @@ export default {
     }
   },
   components: {
-    Title,
-    DpColor
+    Title
   }
 };
 </script>
