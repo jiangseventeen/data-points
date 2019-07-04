@@ -7,14 +7,15 @@ import "./assets/scss/_element.scss";
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
-const datapointsComponent = require.context(
+// 异步加载datapoints可视化组件
+const asyncComponent = require.context(
   "./components/datapoints",
   true,
-  /[A-Z]\w+\.vue$/
+  /[A-Z]\w+\.vue$/,
+  'lazy'
 );
 
-datapointsComponent.keys().forEach(fileName => {
-  let dpComponentConfig = datapointsComponent(fileName);
+asyncComponent.keys().forEach(fileName => {
 
   let [version, componentName] = fileName
     .split("/")
@@ -23,7 +24,7 @@ datapointsComponent.keys().forEach(fileName => {
 
   Vue.component(
     `${componentName}-${version}`,
-    dpComponentConfig.default || dpComponentConfig
+    () => asyncComponent(fileName).then(resolve => resolve.default || resolve)
   );
 });
 
