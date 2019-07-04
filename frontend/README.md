@@ -4,23 +4,31 @@ Project is loading...
 
 ## 启动
 
-```sh
-# clone 仓库
+clone 仓库
+
+```bash
 $ git clone https://github.com/jiangseventeen/data-points.git
-
-# 进入前端项目
 $ cd frontend
+```
 
-# 安装依赖包 （可）
+使用`npm`安装依赖包
+```bash
 $ npm install
+```
+or
 
-# 或使用cnpm安装，npm和cnpm两种方式二选一
+使用cnpm安装，npm和cnpm两种方式二选一
+```bash
 $ npm install -g cnpm --registry=https://registry.npm.taobao.org
 $ cnpm install
+```
 
-# 启动
+
+启动项目
+```bash
 $ npm run serve
 ```
+浏览器打开 [http://localhost:8080](http://localhost:8080)
 
 ## todo
 
@@ -29,7 +37,6 @@ $ npm run serve
 - [ ] 图层（多选|分组）后的放置操作
 - [ ] 组件菜单拖拽添加至画布
 - [ ] 图层锁定
-- [ ] 鼠标右键快捷菜单操作
 - [ ] 参考线
 - [ ] 标尺
 - [ ] 大屏预览页|展示页
@@ -58,7 +65,6 @@ $ npm run serve
 - [ ] 文本-表格
 - [ ] 文本-消息轮播
 - [ ] 文本-日期|时间
-- [ ] 装饰-字体图标
 - [ ] 装饰-边框
 - [ ] 装饰-嵌入页
 - [ ] 装饰-背景块
@@ -73,6 +79,7 @@ $ npm run serve
 
 ## doing
 - [ ] 组件图层排序功能（包括拖拽排序、点击排序、置顶置底、上移下移等）
+- [ ] 鼠标右键快捷菜单操作
 
 ## done
 - [x] ~~画布配置操作~~
@@ -81,3 +88,4 @@ $ npm run serve
 - [x] ~~通用标题组件bata~~
 - [x] ~~组件图层拖拽排序~~
 - [x] ~~组件按版本加载~~
+- [x] 装饰-字体图标
