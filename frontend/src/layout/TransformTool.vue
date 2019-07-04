@@ -99,8 +99,7 @@
 
       // 组件缩放鼠标按键事件
       mousedownResize (y, x, event) {
-        // this.startX = event.pageX - this.width * this.$store.state.pageScale
-        // this.startY = event.pageY - this.height * this.$store.state.pageScale
+
         this.pageX = event.pageX
         this.pageY = event.pageY
         this.xAxis = x
@@ -113,41 +112,34 @@
       // 组件缩放鼠标移动事件
       mousemoveResize (event) {
 
-        // console.log('x:', event.pageX - this.pageX)
-        // console.log('y:', event.pageY - this.pageY)
-        // this.width = (event.pageX - this.startX) / this.$store.state.pageScale
-        // this.height = (event.pageY - this.startY) / this.$store.state.pageScale
-
         // X、Y 方向光标偏移量
         let xAxisOffset = event.pageX - this.pageX
         let yAxisOffset = event.pageY - this.pageY
 
-        let { width, height, left, top } = this
+        let { width, height, left, top, xAxis, yAxis, pageScale } = this
 
-        switch (this.xAxis) {
+        switch (xAxis) {
           case 'left':
-            this.width = width - xAxisOffset / this.pageScale
-            this.left = left + xAxisOffset / this.pageScale
+            this.width = width - xAxisOffset / pageScale
+            this.left = left + xAxisOffset / pageScale
             break
           case 'right':
-            this.width = width + xAxisOffset / this.pageScale
+            this.width = width + xAxisOffset / pageScale
             break
           default:
         }
 
-        switch (this.yAxis) {
+        switch (yAxis) {
           case 'top':
-            this.height = height - yAxisOffset / this.pageScale
-            this.top = top + yAxisOffset / this.pageScale
+            this.height = height - yAxisOffset / pageScale
+            this.top = top + yAxisOffset / pageScale
             break
           case 'bottom':
-            this.height = height + yAxisOffset / this.pageScale
+            this.height = height + yAxisOffset / pageScale
             break
           default:
         }
 
-        // this.width = this.width + xAxisOffset/ this.$store.state.pageScale
-        // this.left = this.left + (event.pageX - this.pageX)/ this.$store.state.pageScale
         this.pageX = event.pageX
         this.pageY = event.pageY
 

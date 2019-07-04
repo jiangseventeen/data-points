@@ -7,7 +7,7 @@
         :class="['tab', {'active': tab.isActive}]"
         @click="handleTabClick(tab)"
       >
-        <el-tooltip :content="tab.label" placement="bottom" effect="light">
+        <el-tooltip :content="tab.label" placement="bottom">
           <Icon :type="tab.icon"/>
         </el-tooltip>
       </div>
@@ -30,9 +30,9 @@ export default {
     return {
       activeKey: 'config',
       tabs: [
-        { value: 'config', label: '配置', icon: 'fa-sliders-h', isActive: true },
-        { value: 'data', label: '数据', icon: 'fa-code', isActive: false },
-        { value: 'interact', label: '交互', icon: 'fa-tools', isActive: false },
+        { value: 'config', label: '配置', icon: 'sliders', isActive: true },
+        { value: 'data', label: '数据', icon: 'database', isActive: false },
+        { value: 'interact', label: '交互', icon: 'retweet', isActive: false },
       ]
     }
   },
