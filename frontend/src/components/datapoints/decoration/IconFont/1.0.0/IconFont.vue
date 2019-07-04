@@ -1,7 +1,7 @@
 <template>
   <div class="dp-component" :style="measure">
     <div class="icon-wrap">
-      <i :class="icon" :style="size"></i>
+      <i :class="`fa fa-${icon}`" :style="iconStyle"></i>
     </div>
   </div>
 </template>
@@ -17,8 +17,9 @@ export default {
     icon () {
       return this.config.icon
     },
-    size () {
+    iconStyle () {
       return {
+        'color': this.config.color,
         'font-size': this.config.fontSize + 'px'
       }
     }
