@@ -4,15 +4,15 @@
     :style="position"
   >
     <div class="handler-container">
-      <i class="topleft"/>
-      <div class="top"/>
-      <div class="topright"></div>
-      <div class="left"></div>
-      <div class="right"></div>
-      <div class="bottomleft"></div>
-      <div class="bottom"></div>
-      <div class="bottomright" v-on:mousedown.prevent="mousedownResize"></div>
-      <div class="move-handler" v-on:mousedown.prevent="mousedownMove"></div>
+      <div class="topleft" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"/>
+      <div class="top" v-on:mousedown.prevent="mousedownResize('top', null, $event)"/>
+      <div class="topright" v-on:mousedown.prevent="mousedownResize('top', 'right', $event)"></div>
+      <div class="left" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"></div>
+      <div class="right" v-on:mousedown.prevent="mousedownResize(null, 'right', $event)"></div>
+      <div class="bottomleft" v-on:mousedown.prevent="mousedownResize('bottom', 'left', $event)"></div>
+      <div class="bottom" v-on:mousedown.prevent="mousedownResize('bottom', null, $event)"></div>
+      <div class="bottomright" v-on:mousedown.prevent="mousedownResize('bottom', 'right', $event)"></div>
+      <div class="move-handler" v-on:mousedown.left.prevent="mousedownMove"></div>
     </div>
   </div>
 </template>
@@ -24,7 +24,9 @@
     data () {
       return {
         startX: 0,
-        startY: 0
+        startY: 0,
+        xAxis: '',
+        yAxis: ''
       }
     },
     computed: {
@@ -60,6 +62,9 @@
           this.dataSrc.config.top = value
         }
       },
+      pageScale (){
+        return this.$store.state.pageScale
+      },
       position () {
         return {
           width: `${this.width}px`,
@@ -76,7 +81,7 @@
         this.startY = event.pageY - this.top * this.$store.state.pageScale
 
         document.addEventListener('mousemove', this.mousemoveMove)
-        document.addEventListener('mouseup', this.mouseup)
+        document.addEventListener('mouseup', this.clearListener)
       },
       // 组件拖拽鼠标移动事件
       mousemoveMove (event) {
@@ -93,26 +98,66 @@
       },
 
       // 组件缩放鼠标按键事件
-      mousedownResize (event) {
-        this.startX = event.pageX - this.width * this.$store.state.pageScale
-        this.startY = event.pageY - this.height * this.$store.state.pageScale
+      mousedownResize (y, x, event) {
+        // this.startX = event.pageX - this.width * this.$store.state.pageScale
+        // this.startY = event.pageY - this.height * this.$store.state.pageScale
+        this.pageX = event.pageX
+        this.pageY = event.pageY
+        this.xAxis = x
+        this.yAxis = y
 
         document.addEventListener('mousemove', this.mousemoveResize)
-        document.addEventListener('mouseup', this.mouseup)
+        document.addEventListener('mouseup', this.clearListener)
       },
 
       // 组件缩放鼠标移动事件
       mousemoveResize (event) {
-        this.width = (event.pageX - this.startX) / this.$store.state.pageScale
-        this.height = (event.pageY - this.startY) / this.$store.state.pageScale
+
+        // console.log('x:', event.pageX - this.pageX)
+        // console.log('y:', event.pageY - this.pageY)
+        // this.width = (event.pageX - this.startX) / this.$store.state.pageScale
+        // this.height = (event.pageY - this.startY) / this.$store.state.pageScale
+
+        // X、Y 方向光标偏移量
+        let xAxisOffset = event.pageX - this.pageX
+        let yAxisOffset = event.pageY - this.pageY
+
+        let { width, height, left, top } = this
+
+        switch (this.xAxis) {
+          case 'left':
+            this.width = width - xAxisOffset / this.pageScale
+            this.left = left + xAxisOffset / this.pageScale
+            break
+          case 'right':
+            this.width = width + xAxisOffset / this.pageScale
+            break
+          default:
+        }
+
+        switch (this.yAxis) {
+          case 'top':
+            this.height = height - yAxisOffset / this.pageScale
+            this.top = top + yAxisOffset / this.pageScale
+            break
+          case 'bottom':
+            this.height = height + yAxisOffset / this.pageScale
+            break
+          default:
+        }
+
+        // this.width = this.width + xAxisOffset/ this.$store.state.pageScale
+        // this.left = this.left + (event.pageX - this.pageX)/ this.$store.state.pageScale
+        this.pageX = event.pageX
+        this.pageY = event.pageY
 
         document.addEventListener('mousemove', this.mousemoveResize)
-        document.addEventListener('mouseup', this.mouseup)
+        document.addEventListener('mouseup', this.clearListener)
       },
-      mouseup () {
+      clearListener () {
         document.removeEventListener('mousemove', this.mousemoveMove)
         document.removeEventListener('mousemove', this.mousemoveResize)
-        document.removeEventListener('mouseup', this.mouseup)
+        document.removeEventListener('mouseup', this.clearListener)
       },
 
       // 删除组件
@@ -176,6 +221,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
+    z-index: 100;
 
     @if $direction1 {
       #{$direction1}: 0;
@@ -214,6 +260,7 @@
 .transform-tool {
   position: absolute;
   border: 1px solid $primary-highlight;
+  background: transparentize($primary-highlight, 0.7);
 
   .handler-container {
     @include direction-handler(top, left, nwse-resize);
@@ -225,12 +272,14 @@
     @include direction-handler(bottom, null, ns-resize);
     @include direction-handler(bottom, right, nwse-resize);
 
+    // 移动拖拽handler
     .move-handler {
       position: absolute;
-      left: 20%;
-      top: 20%;
-      height: 60%;
-      width: 60%;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 99;
       cursor: move;
     }
   }
