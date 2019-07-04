@@ -149,6 +149,7 @@ export default {
   left: $left-sidebar-width;
   right: $right-sidebar-width;
   bottom: $bottom-footer-height;
+  user-select: none;
   overflow: auto;
 
   .canvas {
