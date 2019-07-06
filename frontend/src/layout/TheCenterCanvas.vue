@@ -2,24 +2,27 @@
   <div
     class="center-canvas" 
     :style="[centerPadding]"
-    @click.self.stop="unselectComponent"
+    @click.self="unselectComponent"
+    @contextmenu.prevent="handleCloseMenu"
   >
     <div
       class="canvas"
       :style="[pageSize, pageScale, background]"
-      @click.self.stop="unselectComponent"
+      @click.self="unselectComponent"
     >
       <component
         v-for="v in components"
         :is="`${v.name}-${v.version}`"
         :key="'v' + v.id"
-        @click.native.stop="selectComponent(v)"
         :class="{hover: v.hover}"
         :config="v.config"
         :data="v.data"
         :interaction="v.interaction"
+        @click.left.native="selectComponent(v)"
+        @contextmenu.native.prevent.stop="handleContextMenu(v, $event)"
       />
       <transform-tool
+        @contextmenu.native.prevent.stop="handleContextMenu(n, $event)"
         :key="n.id"
         v-for="n in selectedComponents"
         :dataSrc="n"
@@ -94,6 +97,15 @@ export default {
     },
   },
   methods: {
+    // 打开快捷菜单
+    handleContextMenu (component, event) {
+      this.$store.commit('selectComponent', component)
+      this.$contextMenu.open(event)
+    },
+    // 关闭快捷菜单
+    handleCloseMenu () {
+      this.$contextMenu.close()
+    },
     // 取消全部组件选中状态
     unselectComponent () {
       this.$store.commit('unselectComponent')
