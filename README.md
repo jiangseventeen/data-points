@@ -1,4 +1,5 @@
 # Data-Points
+> 进展：前端整体框架基本完成，可视化组件持续开发中。
 
 Data-Points 灵感来自于阿里云DataV数据可视化工具，当前的UI以及使用方法也与DataV相似。
 
