@@ -25,6 +25,7 @@ contextMenuPlugin.install = function (Vue) {
     instance.$el.style.top = `${pageY + 10}px`
 
     document.addEventListener('click', handleCloseMenu)
+    window.addEventListener('resize', handleCloseMenu)
   }
 
   api.close = function () {
