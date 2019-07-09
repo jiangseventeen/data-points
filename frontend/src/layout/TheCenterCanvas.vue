@@ -166,7 +166,7 @@ export default {
 
   .canvas {
     transform-origin: left top;
-    transition: all 0.2s linear;
+    transition: all 0.05s linear;
     position: absolute;
   }
 }
