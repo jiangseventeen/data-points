@@ -1,12 +1,12 @@
 <template lang="html">
-  <div class="component-setting">
+  <div class="dp-setting">
     <Title>页面设置</Title>
     <el-collapse v-model="activeName">
       <el-collapse-item title="页面尺寸" name="1">
         <el-row>
           <el-col :span="12">
-            <div class="component-setting-input">
-              <span class="component-setting-input-text">宽度</span>
+            <div class="dp-setting-input">
+              <span class="dp-setting-input-text">宽度</span>
               <el-input-number
                 :min="1"
                 size="mini"
@@ -17,8 +17,8 @@
             </div>
           </el-col>
           <el-col :span="12">
-            <div class="component-setting-input">
-              <span class="component-setting-input-text">高度</span>
+            <div class="dp-setting-input">
+              <span class="dp-setting-input-text">高度</span>
               <el-input-number
                 :min="1"
                 size="mini"
@@ -31,14 +31,14 @@
         </el-row>
       </el-collapse-item>
       <el-collapse-item title="背景" name="2">
-        <div class="component-setting-input">
-          <span class="component-setting-input-text">背景色</span>
+        <div class="dp-setting-input">
+          <span class="dp-setting-input-text">背景色</span>
           <DpColor v-model="backgroundColor"/>
         </div>
       </el-collapse-item>
       <el-collapse-item title="渐变" name="3">
-        <div class="component-setting-input" style="margin-bottom: 20px">
-          <span class="component-setting-input-text">渐变方式</span>
+        <div class="dp-setting-input" style="margin-bottom: 20px">
+          <span class="dp-setting-input-text">渐变方式</span>
           <el-select v-model="gradientType">
             <el-option
               v-for="item in gradientTypeOption"
@@ -48,13 +48,13 @@
             </el-option>
           </el-select>
         </div>
-        <div class="component-setting-input" v-show="gradientType !== 1">
+        <div class="dp-setting-input" v-show="gradientType !== 1">
           <div>
-            <span class="component-setting-input-text">起始色</span>
+            <span class="dp-setting-input-text">起始色</span>
             <DpColor v-model="colorFrom"/>
           </div>
           <div>
-            <span class="component-setting-input-text">终止色</span>
+            <span class="dp-setting-input-text">终止色</span>
             <DpColor v-model="colorTo"/>
           </div>
         </div>
