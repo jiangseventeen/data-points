@@ -84,8 +84,7 @@ export default {
   
         // if (offsetY >= LAYER_ITEM_HEIGHT / 2)
         //   to === this.layers.length - 1 ? null : ++to
-  
-        console.log(from ,to)
+
         this.$store.commit('layerMove', { from, to })
       }
       event.currentTarget.classList.remove('insert-before', 'insert-after')
