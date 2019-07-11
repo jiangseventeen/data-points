@@ -251,7 +251,7 @@
 
 .transform-tool {
   position: absolute;
-  border: 1px solid $primary-highlight;
+  border: 1px dashed $primary-highlight;
   background: transparentize($primary-highlight, 0.7);
 
   .handler-container {
