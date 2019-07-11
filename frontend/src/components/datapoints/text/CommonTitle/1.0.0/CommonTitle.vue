@@ -1,5 +1,5 @@
 <template>
-  <div class="dp-component" :style="styles" v-text="title">
+  <div class="dp-component common-title" :style="styles" v-text="title">
   </div>
 </template>
 
@@ -16,6 +16,7 @@
           'top': this.config.top + 'px',
           'font-size': this.config.fontSize + 'px',
           'font-weight': this.config.fontWeight,
+          'font-family': this.config.fontFamily,
           'color': this.config.color,
           'text-align': this.config.textAlign,
           'letter-spacing': this.config.letterSpacing + 'px'
@@ -28,5 +29,11 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .common-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap
+  }
 </style>

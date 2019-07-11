@@ -9,8 +9,8 @@ export default {
   textAlign: 'center',
   letterSpacing: 0,
   color: '#ffffff',
-  width: 400,
-  height: 200,
+  width: 230,
+  height: 60,
   left: 500,
   top: 500
 }
