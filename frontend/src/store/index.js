@@ -247,7 +247,7 @@ const store = new Vuex.Store({
     /**
      * 复制选中图层
      */
-    copyComponents (state) {
+    copyComponents () {
       let selectedList = this.getters.selectedComponentList
 
       selectedList.forEach(n => {
@@ -258,7 +258,7 @@ const store = new Vuex.Store({
     /**
      * 重命名选中图层，多个选中图层时，默认修改第一个选中图层
      */
-    renameComponent (state) {
+    renameComponent () {
       let selectedList = this.getters.selectedComponentList
       selectedList[0].isEdit = true
     }
