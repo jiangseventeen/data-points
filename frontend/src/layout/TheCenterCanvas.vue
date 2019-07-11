@@ -152,7 +152,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss">
 @import "src/assets/scss/_variables.scss";
 
 .center-canvas {

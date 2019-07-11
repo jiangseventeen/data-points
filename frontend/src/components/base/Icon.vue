@@ -9,4 +9,4 @@ export default {
 }
 </script>
 
-<style scope src="font-awesome/css/font-awesome.css">
+<style src="font-awesome/css/font-awesome.css">

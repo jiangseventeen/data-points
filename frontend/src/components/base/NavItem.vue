@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 @import 'src/assets/scss/_variables.scss';
 @import 'src/assets/scss/mixins/_list-style.scss';
 

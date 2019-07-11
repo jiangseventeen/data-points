@@ -15,7 +15,7 @@
     <component
       :activeKey="activeKey"
       :is="currentSettingComponent"
-      :data="currentComponentData"
+      :config="currentComponentData"
     />
   </div>
 </template>
@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 @import 'src/assets/scss/_variables';
 @import 'src/assets/scss/mixins/_clearfix';
 
