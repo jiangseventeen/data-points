@@ -10,6 +10,7 @@ $--color-white: $primary-background-color !default;
 $--color-primary: $primary-highlight !default;
 $--border-color-base: #282f3a !default;
 $--color-text-regular: $primary-color !default;
+$--background-color-base: $second-background-color !default;
 
 // select
 $--select-border-color-hover: $primary-highlight !default;
@@ -18,6 +19,7 @@ $--select-dropdown-border: solid 1px $primary-highlight !default;
 
 // collapse
 $--collapse-content-background-color: $second-background-color !default;
+$--collapse-header-height: 40px !default;
 
 // popover
 $--popover-border-color: $primary-highlight !default;
@@ -28,11 +30,20 @@ $--border-color-lighter: #2f3534 !default;
 // tooltip
 $--tooltip-border-color: #000 !default;
 $--tooltip-color: #fff !default;
-$--tooltip-fill: transparentize($primary-highlight, 0.1) !default;
+$--tooltip-fill: transparentize($primary-highlight, 0.2) !default;
 
 // border
 $--border-radius-base: 2px !default;
 
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+// input
+$--input-hover-border: $primary-highlight !default;
+
+// radio
+$--radio-checked-icon-color: #000;
+
+// button
+$--button-primary-font-color: #fff;
 
 @import "~element-ui/packages/theme-chalk/src/index";

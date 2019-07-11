@@ -1,3 +1,8 @@
+@import './variables.scss';
+
+a {
+  color: $primary-highlight;
+}
 /* components setting */
 .dp-setting {
   height: 100%;
@@ -12,9 +17,11 @@
   padding: 0 5px;
 }
 .dp-setting-input-text {
+  font-size: 12px;
+  font-weight: 300;
   display: inline-block;
-  color: #888;
-  margin-right: 10px
+  color: $primary-color;
+  margin-right: 10px;
 }
 .dp-form-item {
   position: relative;
@@ -28,12 +35,14 @@
   clear: both;
 }
 .dp-form-label {
-  padding: 10px 0;
-  display: inline-block;
-  color: #333;
   position: absolute;
   left: 0;
   width: 80px;
+  padding: 10px 0;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 300;
+  color: $primary-color;
   line-height: 1;
 }
 .dp-form-label i.question {
@@ -78,4 +87,10 @@
 .dp-charts-container {
   width: 100%;
   height: 100%;
+}
+
+
+// overide for element-ui
+.el-radio__inner:after {
+  background-color: $primary-highlight !important;
 }
