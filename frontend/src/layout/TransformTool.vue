@@ -3,6 +3,12 @@
     class="transform-tool"
     :style="position"
   >
+    <div class="x-axis-line" :style="{top: `${top}px`, width: `${left}px`}">
+      <div class="coord" v-text="left"></div>
+    </div>
+    <div class="y-axis-line" :style="{left: `${left}px`, height: `${top}px`}">
+      <div class="coord" v-text="top"></div>
+    </div>
     <div class="handler-container">
       <div class="topleft" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"/>
       <div class="top" v-on:mousedown.prevent="mousedownResize('top', null, $event)"/>
@@ -251,6 +257,7 @@
 
 .transform-tool {
   position: absolute;
+  color: $primary-highlight;
   border: 1px dashed $primary-highlight;
   background: transparentize($primary-highlight, 0.7);
 
@@ -275,5 +282,59 @@
       cursor: move;
     }
   }
+
+  .x-axis-line {
+    position: fixed;
+    left: 0;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px dashed $primary-highlight;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      transform: rotate(45deg);
+      border: solid $primary-highlight;
+      border-width: 0 0 1px 1px;
+      position: absolute;
+      left: 0px;
+      top: -4px;
+    }
+  }
+  .y-axis-line {
+    position: fixed;
+    top: 0;
+    width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px dashed $primary-highlight;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      transform: rotate(45deg);
+      border: solid $primary-highlight;
+      border-width: 1px 0 0 1px;
+      position: absolute;
+      top: 0px;
+      left: -4px;
+    }
+  }
+  // .coord {
+  //   color: $primary-highlight;
+  //   position: absolute;
+  //   top: -30px;
+  //   left: -90px;
+  //   min-width: 80px;
+  //   height: 40px;
+  //   text-align: right;
+  // }
 }
 </style>
