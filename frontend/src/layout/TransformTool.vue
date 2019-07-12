@@ -4,10 +4,12 @@
     :style="position"
   >
     <div class="x-axis-line" :style="{top: `${top}px`, width: `${left}px`}">
-      <div class="coord" v-text="left"></div>
+      <div class="line"></div>
+      <div class="value" v-text="left"></div>
     </div>
     <div class="y-axis-line" :style="{left: `${left}px`, height: `${top}px`}">
-      <div class="coord" v-text="top"></div>
+      <div class="line"></div>
+      <div class="value" v-text="top"></div>
     </div>
     <div class="handler-container">
       <div class="topleft" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"/>
@@ -284,13 +286,36 @@
   }
 
   .x-axis-line {
-    position: fixed;
     left: 0;
-    height: 0;
+    height: 30px;
     display: flex;
+    position: fixed;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-top: 1px dashed $primary-highlight;
+    font-weight: 400;
+    justify-content:  space-between;
+
+    .line {
+      width: 100%;
+      border-top: 1px dashed $primary-highlight;
+      mask-image: linear-gradient(
+        to right,
+        black,
+        black calc(50% - 25px),
+        transparent calc(50% - 25px),
+        transparent calc(50% + 25px),
+        black calc(50% + 25px),
+        black
+      );
+      mask-size: 100% 1px;
+      mask-position: bottom;
+      mask-repeat: no-repeat;
+    }
+
+    .value {
+      font-weight: 300;
+      transform: translateY(-20px);
+    }
 
     &:after {
       content: "";
@@ -302,17 +327,38 @@
       border-width: 0 0 1px 1px;
       position: absolute;
       left: 0px;
-      top: -4px;
+      top: -3px;
     }
   }
   .y-axis-line {
-    position: fixed;
     top: 0;
-    width: 0;
+    width: 30px;
     display: flex;
+    position: fixed;
     align-items: center;
     justify-content: center;
-    border-left: 1px dashed $primary-highlight;
+
+    .line {
+      height: 100%;
+      border-left: 1px dashed $primary-highlight;
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        black calc(50% - 15px),
+        transparent calc(50% - 15px),
+        transparent calc(50% + 15px),
+        black calc(50% + 15px),
+        black
+      );
+      mask-size: 1px 100%;
+      mask-position: left;
+      mask-repeat: no-repeat;
+    }
+
+    .value {
+      font-weight: 300;
+      transform: translateX(-15px);
+    }
 
     &:after {
       content: "";
@@ -324,17 +370,8 @@
       border-width: 1px 0 0 1px;
       position: absolute;
       top: 0px;
-      left: -4px;
+      left: -2px;
     }
   }
-  // .coord {
-  //   color: $primary-highlight;
-  //   position: absolute;
-  //   top: -30px;
-  //   left: -90px;
-  //   min-width: 80px;
-  //   height: 40px;
-  //   text-align: right;
-  // }
 }
 </style>

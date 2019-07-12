@@ -35,6 +35,8 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  font-family: PingFangSC, 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
 }
 #app {
   width: 100%;
