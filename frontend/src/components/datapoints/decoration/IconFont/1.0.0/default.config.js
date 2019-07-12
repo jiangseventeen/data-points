@@ -5,8 +5,8 @@ export default {
   color: '#ffffff',
   fontSize: 40,
   icon: 'fa fa-commenting',
-  width: 400,
-  height: 200,
+  width: 120,
+  height: 100,
   left: 500,
   top: 500
 }

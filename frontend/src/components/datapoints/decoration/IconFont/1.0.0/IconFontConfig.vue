@@ -12,7 +12,12 @@
             </el-tooltip>
           </label>
           <div class="dp-form-input-wrap">
-            <el-input-number size="mini" controls-position="right" v-model="data.fontSize"/>
+            <el-input-number
+              size="mini"
+              style="width: 100px"
+              controls-position="right"
+              v-model="config.fontSize"
+            />
           </div>
         </div>
         <div class="dp-form-item">
@@ -20,7 +25,7 @@
             颜色
           </label>
           <div class="dp-form-input-wrap">
-            <DpColor v-model="data.color"/>
+            <DpColor v-model="config.color"/>
           </div>
         </div>
       </el-collapse-item>
@@ -36,15 +41,25 @@
       <el-collapse-item title="图表尺寸" name="17">
         <el-row>
           <el-col :span="12">
-            <div class="com-setting-input">
-              <span class="com-setting-input-text">宽度</span>
-              <el-input v-model="data.width" style="width:100px"></el-input>
+            <div class="dp-setting-input">
+              <span class="dp-setting-input-text">宽度</span>
+              <el-input-number
+                size="mini"
+                style="width: 90px"
+                v-model="config.width"
+                controls-position="right"
+              />
             </div>
           </el-col>
           <el-col :span="12">
-            <div class="com-setting-input">
-              <span class="com-setting-input-text">高度</span>
-              <el-input v-model="data.height" style="width:100px"></el-input>
+            <div class="dp-setting-input">
+              <span class="dp-setting-input-text">高度</span>
+              <el-input-number
+                size="mini"
+                style="width: 90px"
+                v-model="config.height"
+                controls-position="right"
+              />
             </div>
           </el-col>
         </el-row>
@@ -53,15 +68,25 @@
       <el-collapse-item title="图表位置" name="18">
         <el-row>
           <el-col :span="12">
-            <div class="com-setting-input">
-              <span class="com-setting-input-text">横坐标</span>
-              <el-input v-model="data.left" style="width:100px"></el-input>
+            <div class="dp-setting-input">
+              <span class="dp-setting-input-text">横坐标</span>
+              <el-input-number
+                size="mini"
+                style="width: 90px"
+                v-model="config.left"
+                controls-position="right"
+              />
             </div>
           </el-col>
           <el-col :span="12">
-            <div class="com-setting-input">
-              <span class="com-setting-input-text">纵坐标</span>
-              <el-input v-model="data.top" style="width:100px"></el-input>
+            <div class="dp-setting-input">
+              <span class="dp-setting-input-text">纵坐标</span>
+              <el-input-number
+                size="mini"
+                style="width: 90px"
+                v-model="config.top"
+                controls-position="right"
+              />
             </div>
           </el-col>
         </el-row>
@@ -75,7 +100,7 @@ import Icon from "../../../../base/Icon";
 
 export default {
   name: 'iconFontConfig',
-  props: ['data'],
+  props: ['config'],
   data () {
     return {
       fa,
@@ -84,7 +109,7 @@ export default {
   },
   methods: {
     chooseIcon (icon) {
-      this.data.icon = icon
+      this.config.icon = icon
     }
   },
   components: {
@@ -104,6 +129,7 @@ export default {
     text-align: center;
     vertical-align: middle;
     border: 1px solid #d9d9d9;
+    margin: -1px 0 0 -1px;
     list-style: none;
     cursor: pointer;
     &:hover{
