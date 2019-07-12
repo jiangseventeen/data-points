@@ -1,26 +1,29 @@
 <template>
   <div
-    class="transform-tool"
     :style="position"
+    class="transform-tool"
   >
-    <div class="x-axis-line" :style="{top: `${top}px`, width: `${left}px`}">
-      <div class="line"></div>
-      <div class="value" v-text="left"></div>
+    <div
+      class="x-axis-line"
+      :style="{top: `${top}px`, width: `${left}px`}"
+    >
+      <div class="line" :style="{'border-width': `${1 / pageScale}px`}"/>
+      <div class="value" v-text="left"/>
     </div>
     <div class="y-axis-line" :style="{left: `${left}px`, height: `${top}px`}">
-      <div class="line"></div>
-      <div class="value" v-text="top"></div>
+      <div class="line" :style="{'border-width': `${1 / pageScale}px`}"/>
+      <div class="value" v-text="top"/>
     </div>
     <div class="handler-container">
       <div class="topleft" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"/>
       <div class="top" v-on:mousedown.prevent="mousedownResize('top', null, $event)"/>
-      <div class="topright" v-on:mousedown.prevent="mousedownResize('top', 'right', $event)"></div>
-      <div class="left" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"></div>
-      <div class="right" v-on:mousedown.prevent="mousedownResize(null, 'right', $event)"></div>
-      <div class="bottomleft" v-on:mousedown.prevent="mousedownResize('bottom', 'left', $event)"></div>
-      <div class="bottom" v-on:mousedown.prevent="mousedownResize('bottom', null, $event)"></div>
-      <div class="bottomright" v-on:mousedown.prevent="mousedownResize('bottom', 'right', $event)"></div>
-      <div class="move-handler" v-on:mousedown.left.prevent="mousedownMove"></div>
+      <div class="topright" v-on:mousedown.prevent="mousedownResize('top', 'right', $event)"/>
+      <div class="left" v-on:mousedown.prevent="mousedownResize('top', 'left', $event)"/>
+      <div class="right" v-on:mousedown.prevent="mousedownResize(null, 'right', $event)"/>
+      <div class="bottomleft" v-on:mousedown.prevent="mousedownResize('bottom', 'left', $event)"/>
+      <div class="bottom" v-on:mousedown.prevent="mousedownResize('bottom', null, $event)"/>
+      <div class="bottomright" v-on:mousedown.prevent="mousedownResize('bottom', 'right', $event)"/>
+      <div class="move-handler" v-on:mousedown.left.prevent="mousedownMove"/>
     </div>
   </div>
 </template>
@@ -293,10 +296,11 @@
     flex-direction: column;
     align-items: center;
     font-weight: 400;
-    justify-content:  space-between;
+    justify-content: space-between;
 
     .line {
       width: 100%;
+      height: 5px;
       border-top: 1px dashed $primary-highlight;
       mask-image: linear-gradient(
         to right,
@@ -307,9 +311,7 @@
         black calc(50% + 25px),
         black
       );
-      mask-size: 100% 1px;
-      mask-position: bottom;
-      mask-repeat: no-repeat;
+      mask-clip: border-box;
     }
 
     .value {
@@ -336,10 +338,11 @@
     display: flex;
     position: fixed;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     .line {
       height: 100%;
+      width: 30px;
       border-left: 1px dashed $primary-highlight;
       mask-image: linear-gradient(
         to bottom,
@@ -350,9 +353,7 @@
         black calc(50% + 15px),
         black
       );
-      mask-size: 1px 100%;
-      mask-position: left;
-      mask-repeat: no-repeat;
+      mask-clip: border-box;
     }
 
     .value {
@@ -370,7 +371,7 @@
       border-width: 1px 0 0 1px;
       position: absolute;
       top: 0px;
-      left: -2px;
+      left: -3px;
     }
   }
 }

@@ -11,23 +11,23 @@
       @click.self="unselectComponent"
     >
       <component
-        v-for="v in components"
-        :is="`${v.name}-${v.version}`"
         :key="'v' + v.id"
-        :class="{hover: v.hover}"
         :config="v.config"
         :data="v.data"
+        v-for="v in components"
+        :is="`${v.name}-${v.version}`"
+        :class="{hover: v.hover}"
         :interaction="v.interaction"
+        @mouseenter.native="mouseIn(v)"
+        @mouseleave.native="mouseOut(v)"
         @click.left.native="selectComponent(v)"
         @contextmenu.native.prevent.stop="handleContextMenu(v, $event)"
       />
       <transform-tool
-        @contextmenu.native.prevent.stop="handleContextMenu(n, $event)"
         :key="n.id"
-        v-for="n in selectedComponents"
         :dataSrc="n"
-        @mouseenter.native="mouseIn(n)"
-        @mouseleave.native="mouseOut(n)"
+        v-for="n in selectedComponents"
+        @contextmenu.native.prevent.stop="handleContextMenu(n, $event)"
       />
     </div>
   </div>
@@ -137,7 +137,7 @@ export default {
         'padding-left': (centerWidth - pageWidth * scale) / 2 + 'px',
         'padding-top': (centerHeight - pageHeight * scale) / 2 + 'px'
       }
-     
+
       this.$store.commit('setPageScale', scale)
     },
 

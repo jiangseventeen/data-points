@@ -73,7 +73,7 @@ a {
   display: block;
   overflow: hidden;
 }
-.dp-component:hover:after, .dp-component.hover:after {
+.dp-component.hover:after {
   content: '';
   display: block;
   position: absolute;
