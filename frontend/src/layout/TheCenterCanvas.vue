@@ -165,9 +165,10 @@ export default {
   overflow: auto;
 
   .canvas {
+    position: absolute;
     transform-origin: left top;
     transition: all 0.05s linear;
-    position: absolute;
+    box-shadow: 0 0 15px 0px rgba(0, 0, 0, .3);
   }
 }
 </style>
