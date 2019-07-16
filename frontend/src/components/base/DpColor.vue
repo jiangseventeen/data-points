@@ -1,7 +1,9 @@
 <template>
   <div class="dp-color">    
     <div class="color-button">
-      <div class="color-preview" :style="color"/>
+      <div class="color-preview">
+        <span class="c-color" :style="color"></span>
+      </div>
       <div class="color-value" v-text="value"/>
         <el-popover
           width="225"
@@ -23,7 +25,7 @@ export default {
   props: ['value'],
   computed: {
     color () {
-      return 'background: ' + this.value
+      return 'background-color: ' + this.value
     }
   },
   methods: {
@@ -61,11 +63,20 @@ export default {
       display: inline-block;
       margin-right: 5px;
       vertical-align: middle;
+      background: url('../../assets/image/transparent-bg.png') center center no-repeat;
+      background-size: 100% 100%;
+
+      .c-color {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .color-value {
       color: $--color-text-primary;
       display: inline-block;
+      vertical-align: middle;
     }
 
     .color-picker {
