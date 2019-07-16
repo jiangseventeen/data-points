@@ -28,7 +28,9 @@ export default {
   },
   methods: {
     updateValue (color) {
-      this.$emit('input', color.hex)
+      color.a !== 1
+        ? this.$emit('input', color.hex8)
+        : this.$emit('input', color.hex)
     }
   },
   components: {
