@@ -1,7 +1,7 @@
 export default {
-  props: ['config'],
+  props: ['config', 'data'],
   computed: {
-    measure () {
+    position () {
       return {
         'width': this.config.width + 'px',
         'height': this.config.height + 'px',
