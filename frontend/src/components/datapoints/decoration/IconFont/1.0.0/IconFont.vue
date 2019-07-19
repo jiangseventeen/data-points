@@ -1,5 +1,5 @@
 <template>
-  <div class="dp-component" :style="measure">
+  <div class="dp-component" :style="position">
     <div class="icon-wrap">
       <i :class="`fa fa-${icon}`" :style="iconStyle"></i>
     </div>
@@ -7,12 +7,11 @@
 </template>
 
 <script>
-import mixins from '../../../mixins/measure'
+import commonMixin from 'src/components/datapoints/mixins/common'
 
 export default {
   name: 'iconFont',
-  props: ['config'],
-  mixins: [mixins],
+  mixins: [commonMixin],
   computed: {
     icon () {
       return this.config.icon

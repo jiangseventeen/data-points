@@ -1,6 +1,5 @@
 <template>
   <div class="dp-setting">
-    <div class="dp-setting-heading">字体图标库</div>
     <el-collapse v-model="activeName">
       <el-collapse-item title="图标样式" name="100">
         <div class="dp-form-item">
