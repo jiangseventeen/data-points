@@ -2,48 +2,48 @@
   <div>
     <!-- 组件位置设置 -->
     <el-collapse-item title="组件位置" name="17">
-      <el-row style="margin-bottom: 10px">
+      <el-row class="dp-form-item dp-form-vertical">
         <el-col :span="12">
-          <div class="dp-setting-input">
-            <span class="dp-setting-input-text">宽度</span>
+          <div class="dp-form-label">宽度</div>
+          <div class="dp-form-control">
             <el-input-number
               size="mini"
-              style="width: 90px"
+              style="width: 110px"
               v-model="config.width"
               controls-position="right"
             />
           </div>
         </el-col>
         <el-col :span="12">
-          <div class="dp-setting-input">
-            <span class="dp-setting-input-text">高度</span>
+          <div class="dp-form-label">高度</div>
+          <div class="dp-form-control">
             <el-input-number
               size="mini"
-              style="width: 90px"
+              style="width: 110px"
               v-model="config.height"
               controls-position="right"
             />
           </div>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row class="dp-form-item dp-form-vertical">
         <el-col :span="12">
-          <div class="dp-setting-input">
-            <span class="dp-setting-input-text">横坐标</span>
+          <div class="dp-form-label">横坐标</div>
+          <div class="dp-form-control">
             <el-input-number
               size="mini"
-              style="width: 90px"
+              style="width: 110px"
               v-model="config.left"
               controls-position="right"
             />
           </div>
         </el-col>
         <el-col :span="12">
-          <div class="dp-setting-input">
-            <span class="dp-setting-input-text">纵坐标</span>
+          <div class="dp-form-label">纵坐标</div>
+          <div class="dp-form-control">
             <el-input-number
               size="mini"
-              style="width: 90px"
+              style="width: 110px"
               v-model="config.top"
               controls-position="right"
             />
