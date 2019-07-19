@@ -4,13 +4,13 @@
 export default {
   title: '这是标题内容',
   fontFamily: 'Microsoft yahei',
-  fontSize: 30,
+  fontSize: 50,
   fontWeight: 500,
   textAlign: 'center',
   letterSpacing: 0,
   color: '#ffffff',
-  width: 230,
-  height: 60,
+  width: 350,
+  height: 100,
   left: 500,
   top: 500
 }

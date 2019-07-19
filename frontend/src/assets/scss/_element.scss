@@ -11,6 +11,7 @@ $--color-primary: $primary-highlight !default;
 $--border-color-base: #282f3a !default;
 $--color-text-regular: $primary-color !default;
 $--background-color-base: $second-background-color !default;
+$--border-color-light: #282f3a !default;
 
 // select
 $--select-border-color-hover: $primary-highlight !default;
@@ -41,9 +42,19 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 $--input-hover-border: $primary-highlight !default;
 
 // radio
+$--radio-font-size: 12px !default;
+$--radio-font-weight: 300 !default;
 $--radio-checked-icon-color: #000;
+$--radio-input-border: 2px solid $primary-color !default;
 
 // button
 $--button-primary-font-color: #fff;
+$--button-primary-background-color: transparent;
+
+// slider
+// $--slider-runway-background-color: #E4E7ED !default;
+
+// tabs
+$--tab-font-size: 12px !default;
 
 @import "~element-ui/packages/theme-chalk/src/index";
