@@ -6,7 +6,7 @@
 
     <div class="nav">
       <ul class="nav-list">
-        <li v-for="(navItem, index) in components" :key="index">
+        <li v-for="(navItem, index) in components" :key="index" :title="navItem.title">
           <Icon :type="navItem.icon"/>
           <div class="components-wrap">
             <ul class="components-list">
@@ -27,12 +27,23 @@
 
     <div class="opts">
       <ul class="opts-list">
-        <li>
-          <Icon type="question-circle"/>
-        </li>
-        <li>
-          <Icon type="laptop"/>
-        </li>
+        <el-tooltip content="官方仓库" placement="bottom">
+          <li>
+            <a target="_blank" href="https://github.com/jiangseventeen/data-points">
+              <Icon type="github"/>
+            </a>
+          </li>
+        </el-tooltip>
+        <el-tooltip content="帮助" placement="bottom">
+          <li>
+            <Icon type="question-circle"/>
+          </li>
+        </el-tooltip>
+        <el-tooltip content="预览" placement="bottom">
+          <li>
+            <Icon type="laptop"/>
+          </li>
+        </el-tooltip>
       </ul>
     </div>
   </div>
@@ -178,6 +189,10 @@ export default {
 
       li {
         @include nav-list-item(right);
+
+        a {
+          color: $primary-text-color;
+        }
       }
     }
   }
