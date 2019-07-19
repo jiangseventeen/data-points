@@ -5,77 +5,85 @@
       <el-collapse-item title="页面尺寸" name="1">
         <el-row>
           <el-col :span="12">
-            <div class="dp-setting-input">
-              <span class="dp-setting-input-text">宽度</span>
-              <el-input-number
-                :min="1"
-                size="mini"
-                v-model="width"
-                style="width:100px"
-                controls-position="right"
-              />
+            <div class="dp-form-item dp-form-vertical">
+              <div class="dp-form-label">宽度</div>
+              <div class="dp-form-control">
+                <el-input-number
+                  :min="1"
+                  size="mini"
+                  v-model="width"
+                  style="width:100px"
+                  controls-position="right"
+                />
+              </div>
             </div>
           </el-col>
           <el-col :span="12">
-            <div class="dp-setting-input">
-              <span class="dp-setting-input-text">高度</span>
-              <el-input-number
-                :min="1"
-                size="mini"
-                v-model="height"
-                style="width:100px"
-                controls-position="right"
-              />
+            <div class="dp-form-item dp-form-vertical">
+              <div class="dp-form-label">高度</div>
+              <div class="dp-form-control">
+                <el-input-number
+                  :min="1"
+                  size="mini"
+                  v-model="height"
+                  style="width:100px"
+                  controls-position="right"
+                />
+              </div>
             </div>
           </el-col>
         </el-row>
       </el-collapse-item>
-      <el-collapse-item title="背景" name="2">
-        <div class="dp-setting-input">
-          <span class="dp-setting-input-text">背景色</span>
-          <DpColor v-model="backgroundColor"/>
+      <el-collapse-item title="背景" name="2" class="dp-form-horizontal">
+
+        <div class="dp-form-item">
+          <div class="dp-form-label">背景色</div>
+          <div class="dp-form-control">
+            <DpColor v-model="backgroundColor"/>
+          </div>
         </div>
-      </el-collapse-item>
-      <el-collapse-item title="渐变" name="3">
-        <div class="dp-setting-input" style="margin-bottom: 20px">
-          <span class="dp-setting-input-text">渐变方式</span>
-          <el-select v-model="gradientType">
-            <el-option
-              v-for="item in gradientTypeOption"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
+        <div class="dp-form-item">
+          <div class="dp-form-label">渐变方式</div>
+          <div class="dp-form-control">
+            <el-select v-model="gradientType" size="mini">
+              <el-option
+                v-for="item in gradientTypeOption"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </div>
         </div>
-        <div class="dp-setting-input" v-show="gradientType !== 1">
-          <div>
-            <span class="dp-setting-input-text">起始色</span>
+        <div class="dp-form-item" v-show="gradientType !== 1">
+          <div class="dp-form-label">起始色</div>
+          <div class="dp-form-control">
             <DpColor v-model="colorFrom"/>
           </div>
-          <div>
-            <span class="dp-setting-input-text">终止色</span>
+        </div>
+        <div class="dp-form-item" v-show="gradientType !== 1">
+          <div class="dp-form-label">终止色</div>
+          <div class="dp-form-control">
             <DpColor v-model="colorTo"/>
           </div>
         </div>
       </el-collapse-item>
       <el-collapse-item title="缩放方式" name="4">
-        <el-row>
-          <el-col :span="20" style="padding-left:20px;">
-            <el-radio class="radio" v-model="scaleType" :label="1">等比缩放宽度铺满</el-radio>
-            <br>
-            <el-radio class="radio" v-model="scaleType" :label="2">等比缩放高度铺满</el-radio>
-            <br>
-            <el-radio class="radio" v-model="scaleType" :label="3">全屏铺满</el-radio>
-          </el-col>
-        </el-row>
+        <p>
+          <el-radio v-model="scaleType" :label="1">等比缩放宽度铺满</el-radio>
+        </p>
+        <p>
+          <el-radio v-model="scaleType" :label="2">等比缩放高度铺满</el-radio>
+        </p>
+        <p>
+          <el-radio v-model="scaleType" :label="3">全屏铺满</el-radio>
+        </p>
       </el-collapse-item>
       <el-collapse-item title="栅格间距" name="5">
-        <el-input-number size="small" v-model="gutter" :min="1"></el-input-number>
+        <el-input-number size="small" v-model="gutter" :min="1"/>
       </el-collapse-item>
       <el-collapse-item title="大屏封面" name="6">
         <img class="page-thumbnail" :src="thumbnail || '/default-thumbnail.jpg'"/>
-        <br>
         <el-button class="get-thumbnail" type="primary" size="small">获取截图</el-button>
       </el-collapse-item>
     </el-collapse>
@@ -90,8 +98,9 @@ export default {
   name: "PageSetting",
   data() {
     return {
-      activeName: ["1", "2", "3", "4", "5", "6"],
-      gradientTypeOption
+      activeName: ["1", "2", "3", "4", "5"],
+      gradientTypeOption,
+      code: '{title: 1, name: 2}'
     };
   },
   computed: {
@@ -179,10 +188,15 @@ export default {
 
 <style lang="scss" scoped>
   .page-thumbnail {
+    display: block;
     width: 280px;
   }
 
   .get-thumbnail {
     margin-top: 20px;
+  }
+  .editor {
+    width: 100%;
+    height: 400px;
   }
 </style>
