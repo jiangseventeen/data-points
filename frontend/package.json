@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "countup.js": "^2.0.4",
     "echarts": "^4.2.1",
     "element-ui": "^2.9.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.11",
+    "monaco-editor": "^0.17.1",
     "vue": "^2.6.10",
     "vue-color": "^2.7.0",
     "vuex": "^3.1.1"
