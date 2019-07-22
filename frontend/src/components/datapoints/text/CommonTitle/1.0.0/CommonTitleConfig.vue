@@ -107,6 +107,7 @@
 <script>
 import fontWeight from 'src/constants/fontWeight'
 import fontFamily from 'src/constants/fontFamily'
+import textAlign from 'src/constants/textAlign'
 
 export default {
   name: 'commonTitleConfig',
@@ -114,12 +115,8 @@ export default {
     return {
       fontFamily,
       fontWeight,
+      textAlign,
       activeName: ['1', '2', '3', '4'],
-      textAlign: [
-        {value: 'left', label: '左对齐'},
-        {value: 'right', label: '右对齐'},
-        {value: 'center', label: '居中对齐'}
-      ]
     }
   },
   props: ['config']
