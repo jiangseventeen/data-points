@@ -62,12 +62,13 @@ a {
 
 .dp-form-horizontal {
   .dp-form-label {
-    min-width: 60px;
-    display: inline-block;
+    float: left;
+    width: 60px;
+    margin-top: 5px;
   }
 
   .dp-form-control {
-    display: inline-block;
+    margin-left: 60px;
   }
 }
 
