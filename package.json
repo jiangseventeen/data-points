@@ -1,0 +1,34 @@
+{
+  "name": "data-points",
+  "version": "1.0.0",
+  "description": "Data visualization system for big screen",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "scripts": {
+    "commitmsg": "validate-commit-msg",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangseventeen/data-points.git"
+  },
+  "keywords": [
+    "visualization"
+  ],
+  "author": "jiangseventeen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jiangseventeen/data-points/issues"
+  },
+  "homepage": "https://github.com/jiangseventeen/data-points#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
