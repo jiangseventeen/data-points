@@ -4,6 +4,7 @@ import store from "./store";
 import ElementUI from "element-ui";
 import ContextMenuPlugin from './layout/ContextMenuPlugin';
 import './components/base';
+import './filter';
 import "./assets/scss/_element.scss";
 
 Vue.config.productionTip = false;
