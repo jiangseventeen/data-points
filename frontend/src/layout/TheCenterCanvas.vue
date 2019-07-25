@@ -7,8 +7,11 @@
   >
     <div
       class="canvas"
+      ref="canvas"
+      ondragover="return false"
       :style="[pageSize, pageScale, background]"
       @click.self="unselectComponent"
+      @drop="handleDropComponent($event)"
     >
       <component
         :key="'v' + v.id"
@@ -69,22 +72,19 @@ export default {
           return { 
             'background-color': color,
             'background-image': image
-          };
+          }
         case 2:
           return {
-            background:
-              `linear-gradient(to right, ${colorStart}, ${colorStop})`
-          };
+            background: `linear-gradient(to right, ${colorStart}, ${colorStop})`
+          }
         case 3:
           return {
-            background:
-              `linear-gradient(to bottom, ${colorStart}, ${colorStop})`
-          };
+            background: `linear-gradient(to bottom, ${colorStart}, ${colorStop})`
+          }
         case 4:
           return {
-            background:
-              `radial-gradient(circle at center, ${colorStart}, ${colorStop})`
-          };
+            background: `radial-gradient(circle at center, ${colorStart}, ${colorStop})`
+          }
         default:
           return { background: '#000'}
       }
@@ -138,16 +138,44 @@ export default {
         'padding-top': (centerHeight - pageHeight * scale) / 2 + 'px'
       }
 
-      this.$store.commit('setPageScale', scale)
+      this.$store.commit('setPageScale', Math.round(scale * 100) / 100)
     },
+    // mousewheel event handler
+    handleMouseWheel (event) {
+      event.preventDefault()
 
+      // only if ctrl key is press down
+      if (event.ctrlKey) {
+        let scale = event.wheelDelta / 120
+        this.$store.commit('setPageScale', this.$store.state.pageScale + scale / 100)
+      }
+    },
+    // insert component by drag and drop
+    handleDropComponent (event) {
+      try {
+        let { offsetX, offsetY } = event
+        let component = JSON.parse(event.dataTransfer.getData('text/plain'))
+
+        component.config.left = offsetX - component.config.width / 2
+        component.config.top = offsetY - component.config.height / 2
+
+        this.$store.commit('insertComponent', component)
+      } catch (e) {
+
+      }
+    }
   },
   components: {
     TransformTool
   },
-  created () {
+  mounted () {
     this.pageResize();
     window.addEventListener('resize', this.pageResize)
+
+    this.$refs['canvas'].addEventListener('mousewheel', this.handleMouseWheel)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.pageResize)
   }
 };
 </script>

@@ -11,10 +11,13 @@
           <div class="components-wrap">
             <ul class="components-list">
               <li
+                draggable
                 class="nav-item"
                 :key="component.id"
+                @dragstart="handleDragNav(component, $event)"
                 @click="handleAddComponent(component)"
                 v-for="component in navItem.components"
+
               >
                 <img :src="component.thumbnail"/>
                 <h6 v-text="component.title"></h6>
@@ -63,6 +66,9 @@ export default {
   methods: {
     handleAddComponent (component) {
       this.$store.commit('insertComponent', component)
+    },
+    handleDragNav (component, event) {
+      event.dataTransfer.setData('text/plain', JSON.stringify(component))
     }
   },
   components: {
@@ -141,7 +147,7 @@ export default {
           position: absolute;
           top: $top-heading-height;
           left: 0;
-          width: 400px;
+          width: 380px;
           min-height: 200px;
           max-height: 500px;
           background: #161a17;
@@ -155,7 +161,7 @@ export default {
               margin: 10px;
 
               img {
-                width: 80px;
+                width: 100px;
                 display: block;
                 border: 1px solid transparent;
               }
@@ -163,7 +169,7 @@ export default {
               h6 {
                 margin: 10px 0;
                 line-height: 1.2;
-                font-weight: 300;
+                font-weight: 400;
               }
 
               &:hover {
