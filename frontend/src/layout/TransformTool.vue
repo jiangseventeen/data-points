@@ -264,7 +264,7 @@
   position: absolute;
   color: $primary-highlight;
   border: 1px dashed $primary-highlight;
-  background: transparentize($primary-highlight, 0.7);
+  background: transparentize($primary-highlight, 0.8);
 
   .handler-container {
     @include direction-handler(top, left, nwse-resize);
