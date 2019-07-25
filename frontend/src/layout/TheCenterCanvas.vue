@@ -156,12 +156,13 @@ export default {
         let { offsetX, offsetY } = event
         let component = JSON.parse(event.dataTransfer.getData('text/plain'))
 
+        // put the component center on the cursor position.
         component.config.left = offsetX - component.config.width / 2
         component.config.top = offsetY - component.config.height / 2
 
         this.$store.commit('insertComponent', component)
       } catch (e) {
-
+        return
       }
     }
   },
