@@ -3,14 +3,20 @@
     <template v-if="data">
       <div class="validate-status">
         <span>数据源校验</span>
+
+        <div v-if="isLoading" class="loading">
+          <span class="loading-blink"></span>
+          校验中
+        </div>
         <span
+          v-else
           v-text="validateResult"
           :class="['status', validateStatus ? 'success' : 'fail']"
         />
       </div>
       <div class="data-src">
         <el-row type="flex" align="middle">
-          <el-col :span="10">数据源类型</el-col>
+          <el-col :span="10">数据源类型</el-col> 
           <el-col :span="14">
             <el-select
               size="mini"
@@ -24,7 +30,7 @@
           </el-col>
         </el-row>
         <div class="editor-container">
-          <code-editor/>
+          <code-editor v-model="staticData" @blur="startValidate"/>
         </div>
       </div>
     </template>
@@ -38,19 +44,41 @@
 
 <script>
 import CodeEditor from 'src/components/base/CodeEditor'
+import validator from 'src/utils/validator'
 
 export default {
   name: 'DataSetting',
   props: ['name', 'data'],
   data () {
     return {
-      validateStatus: 'false',
-      dataType: 'static'
+      validateStatus: false,
+      dataType: 'static',
+      isLoading: false
     }
   },
   computed: {
+    staticData: {
+      get () {
+        return JSON.stringify(this.data.staticData, null, 2)
+      },
+      set (value) {
+        this.data.staticData = JSON.parse(value)
+      }
+    },
     validateResult () {
       return this.validateStatus ? '配置成功' : '配置失败'
+    }
+  },
+  methods: {
+    startValidate (hasChanged) {
+      console.log(hasChanged)
+      if (hasChanged) {
+        this.isLoading = true
+        this.validateStatus = validator.validate(this.data.staticData, this.data.schema).valid
+        setTimeout(() => {
+          this.isLoading = false
+        }, 500)
+      }
     }
   },
   components: {
@@ -61,6 +89,7 @@ export default {
 
 <style lang="scss">
 @import 'src/assets/scss/_variables';
+@import 'src/assets/scss/animate/blink-loading';
 
 .data-setting {
   font-size: 12px;
@@ -77,6 +106,18 @@ export default {
     padding: 16px;
     border-top: 1px solid  #282f3a;
     border-bottom: 1px solid  #282f3a;
+
+    .loading {
+      float: right;
+
+      .loading-blink {
+        width: 6px;
+        height: 6px;
+        display: inline-block;
+        margin-right: 30px;
+        animation: blink-loading 1s linear infinite alternate;
+      }
+    }
 
     .status {
       float: right;

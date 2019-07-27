@@ -13,6 +13,7 @@ a {
   cursor: move;
   display: block;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .dp-component.hover:after {
   content: '';
@@ -23,7 +24,7 @@ a {
   top: 0;
   bottom: 0;
   background-color: rgba(0,192,222,.2);
-  border: 1px solid #419bf9;
+  border: 1px solid $primary-highlight;
 }
 .dp-charts-container {
   width: 100%;

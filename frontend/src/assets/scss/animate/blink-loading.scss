@@ -1,0 +1,20 @@
+@keyframes blink-loading{
+  0% {
+    background-color: rgba(35, 218, 183, 1);
+    box-shadow:
+      12px 0px 0px 0px rgba(35, 218, 183,0.2), 
+      24px 0px 0px 0px rgba(35, 218, 183,0.2);
+  }
+  50% { 
+    background-color: rgba(35, 218, 183, 0.4);
+    box-shadow: 
+      12px 0px 0px 0px rgba(35, 218, 183, 2), 
+      24px 0px 0px 0px rgba(35, 218, 183, 0.2);
+    }
+  100% {
+    background-color: rgba(35, 218, 183, 0.4);
+    box-shadow:
+      12px 0px 0px 0px rgba(35, 218, 183, 0.2), 
+      24px 0px 0px 0px rgba(35, 218, 183, 1);
+  }
+}
