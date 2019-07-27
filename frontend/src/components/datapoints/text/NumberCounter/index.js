@@ -6,6 +6,8 @@
 
 const version = '1.0.0'
 import img_number_counter from './text-number-counter.png'
+import defaultConfig from './1.0.0/default.config'
+import defaultData from './1.0.0/default.data'
 
 export default {
   id: '004002',
@@ -14,7 +16,7 @@ export default {
   name: 'NumberCounter',
   enabled: true,
   thumbnail: img_number_counter,
-  config: {},
-  data: null,
+  config: defaultConfig,
+  data: defaultData,
   interaction: null
 }

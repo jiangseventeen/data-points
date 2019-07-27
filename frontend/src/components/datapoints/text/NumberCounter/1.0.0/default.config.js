@@ -4,32 +4,35 @@
 
 export default {
   title: {
-    name: 'Title',
-    align: 'left',
-    color: '#ffffff',
-    fontSize: 30,
+    color: '#FFFFFF',
     fontFamily: '',
+    fontSize: 30,
+    textAlign: 'left',
     fontWeight: 500,
+    lineHeight: 1.5
   },
   number: {
-    target: '',
     type: 'static',
-    debounce: 0,
-    align: 'left',
-    color: '#ffffff',
-    fontSize: 25,
+    bounce: 50,
+    bounceInterval: 3,
+    textAlign: 'left',
+    fontSize: 45,
     fontWeight: 500,
+    color: '#FFFFFF',
+    letterSpacing: 0,
+    useGroup: false,
+    precision: 0
   },
-  border: {
-    background: '#ffffff00',
-    borderColor: '',
+  card: {
+    backgroundColor: '#FFFFFF00',
+    borderColor: '#FFFFFF00',
     borderWidth: 0,
     borderRadius: 0,
-    padding: 0,
-    borderType: 'solid',
+    padding: 10,
+    borderStyle: 'solid',
   },
-  width: 260,
-  height: 100,
+  width: 320,
+  height: 150,
   left: 500,
   top: 500
 }
