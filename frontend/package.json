@@ -16,6 +16,7 @@
     "echarts": "^4.2.1",
     "element-ui": "^2.9.1",
     "font-awesome": "^4.7.0",
+    "jsonschema": "^1.2.4",
     "lodash": "^4.17.11",
     "monaco-editor": "^0.17.1",
     "vue": "^2.6.10",
@@ -29,6 +30,7 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "monaco-editor-webpack-plugin": "^1.7.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21"
