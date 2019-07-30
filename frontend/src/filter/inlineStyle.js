@@ -10,7 +10,8 @@ export default function (style) {
     'padding',
     'letterSpacing',
     'borderRadius',
-    'borderWidth'
+    'borderWidth',
+    'textIndent'
   ]
 
   let inlineStyle = {}
