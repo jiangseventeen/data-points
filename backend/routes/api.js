@@ -1,7 +1,7 @@
 var express = require('express');
 var multer  = require('multer');
 var path = require('path');
-var config = require('./default.config');
+var config = require('../default.config');
 
 var router = express.Router();
 var upload = multer({ dest: config.upload.path });
