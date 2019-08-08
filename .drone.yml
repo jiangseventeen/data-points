@@ -4,11 +4,15 @@ name: default
 steps:
 - name: backend
   image: node
-  ports:
+  port:
   - 80:3000
   volumes:
   - name: upload
   - path: /public/uploads
   commands:
+  - cd backend
   - npm i
   - npm start
+  when:
+    branch:
+    - master
