@@ -1,0 +1,14 @@
+kind: pipeline
+name: default
+
+steps:
+- name: backend
+  image: node
+  ports:
+  - 80:3000
+  volumes:
+  - name: upload
+  - path: /public
+  commands:
+  - npm i
+  - npm start
