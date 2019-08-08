@@ -8,7 +8,7 @@ steps:
   - 80:3000
   volumes:
   - name: upload
-  - path: /public
+  - path: /public/uploads
   commands:
   - npm i
   - npm start
