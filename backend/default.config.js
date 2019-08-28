@@ -2,6 +2,8 @@ var path = require('path');
 
 module.exports = {
   upload: {
-    path: path.join(__dirname, '/public/uploads/')
+    path: '/public/uploads/',
+    publicOrigin: 'http://dp.xingwen.me',
+    publicUrl: '/public/fs'
   }
 }
