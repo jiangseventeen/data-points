@@ -7,7 +7,7 @@
 
 <script>
 import commonMixin from 'src/components/datapoints/mixins/common'
-import TWEEN from 'tween.js'
+import TWEEN from '@tweenjs/tween.js'
 import http from 'src/utils/http'
 
 export default {
