@@ -1,18 +1,20 @@
 kind: pipeline
+type: exec
 name: default
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
-- name: backend
-  image: node
-  port:
-  - 80:3000
-  volumes:
-  - name: upload
-  - path: /public/uploads
+- name: dp-ci
   commands:
-  - cd backend
-  - npm i
-  - npm start
-  when:
-    branch:
-    - master
+  - docker container stop data-points || true
+  - docker container rm data-points || true
+  - docker image rm data-points || true
+  - docker build -t data-points .
+  - docker run --name data-points -p 3001:3000 -v /public/uploads:/public/uploads --restart=always -d data-points
+
+trigger:
+  branch:
+  - master

@@ -3,10 +3,10 @@ var config = require('../default.config');
 
 exports.upload = function (req, res, next) {
   var pathname = path.resolve(
-    config.upload.publicUrl,
+    config.upload.publicPath,
     req.file.filename
   );
-  var url = new URL(pathname, config.upload.publicOrigin);
+  // var url = new URL(pathname, config.upload.publicOrigin);
 
-  res.send({ url });
+  res.send({ url: pathname });
 }
