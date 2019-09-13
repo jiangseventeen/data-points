@@ -5,6 +5,17 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? './'
     : '/',
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+      },
+      '/public/fs': {
+        target: 'http://localhost:3000'
+      }
+    }
+  },
+  productionSourceMap: false,
   configureWebpack: {
     resolve: {
       alias: {
