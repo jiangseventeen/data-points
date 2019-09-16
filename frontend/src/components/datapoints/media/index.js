@@ -1,1 +1,5 @@
-export default []
+import SingleImage from './SingleImage'
+
+export default [
+  SingleImage
+]
