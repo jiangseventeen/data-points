@@ -62,8 +62,8 @@ export default {
       new TWEEN.Tween({number: this.presentValue})
             .easing(TWEEN.Easing.Quadratic.Out)
             .to({number: value}, 500)
-            .onUpdate(function() {
-              vm.presentValue = this.number
+            .onUpdate(function(target) {
+              vm.presentValue = target.number
             })
             .start()
 
@@ -79,14 +79,14 @@ export default {
         this.baseValue = value
         this.update(value)
       } else if (dataSrc.api) {
-        http.get(api)
+        http.get(dataSrc.api)
       }
     },
     withBounce () {
-      clearInterval(this.bounceInterval)
+      clearInterval(this.interval)
 
       if (this.bounce !== 0) {
-        this.bounceInterval = setInterval(() => {
+        this.interval = setInterval(() => {
           let newTargetValue = this.baseValue + Math.round((Math.random() - 0.5) * this.bounce * 2)
           this.update(newTargetValue)
         }, this.bounceInterval * 1000)
