@@ -1,7 +1,7 @@
 <template>
   <div class="dp-setting">
     <el-collapse v-model="activeName">
-      <el-collapse-item title="图表样式" name="100">
+      <el-collapse-item title="图表样式">
         <el-row class="dp-form-item">
           <el-col :span="6">
             <div class="dp-form-label">背景色</div>
