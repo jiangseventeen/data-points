@@ -11,7 +11,7 @@ import _ from 'lodash'
 import commonMixin from 'src/components/datapoints/mixins/common'
 
 export default {
-  name: 'BaseBarChartConfig',
+  name: 'BaseBarChart',
   mixins: [commonMixin],
   mounted () {
     this.chart = echarts.init(this.$refs.container)
