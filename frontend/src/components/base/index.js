@@ -8,6 +8,7 @@ import DpColor from './DpColor'
 import AxisName from './AxisName'
 import ChartGrid from './ChartGrid'
 import AxisLabel from './AxisLabel'
+import TextStyle from './TextStyle'
 import DpFormItem from './DpFormItem'
 import BorderConfig from './BorderConfig'
 import PercentSlider from './PercentSlider'
@@ -20,6 +21,7 @@ Vue.component('DpColor', DpColor)
 Vue.component('AxisName', AxisName)
 Vue.component('ChartGrid', ChartGrid)
 Vue.component('AxisLabel', AxisLabel)
+Vue.component('TextStyle', TextStyle)
 Vue.component('DpFormItem', DpFormItem)
 Vue.component('BorderConfig', BorderConfig)
 Vue.component('PercentSlider', PercentSlider)
