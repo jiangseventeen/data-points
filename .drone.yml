@@ -9,10 +9,10 @@ platform:
 steps:
 - name: dp-ci
   commands:
+  - docker image rm data-points || true
   - docker build -t data-points .
   - docker container stop data-points || true
   - docker container rm data-points || true
-  - docker image rm data-points || true
   - docker run --name data-points -p 3001:3000 -v /public/uploads:/public/uploads --restart=always -d data-points
 
 trigger:
