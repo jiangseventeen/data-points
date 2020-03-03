@@ -131,22 +131,22 @@
 
         switch (xAxis) {
           case 'left':
-            this.width = width - xAxisOffset / pageScale
-            this.left = left + xAxisOffset / pageScale
+            this.width = width - parseInt(xAxisOffset / pageScale)
+            this.left = left + parseInt(xAxisOffset / pageScale)
             break
           case 'right':
-            this.width = width + xAxisOffset / pageScale
+            this.width = width + parseInt(xAxisOffset / pageScale)
             break
           default:
         }
 
         switch (yAxis) {
           case 'top':
-            this.height = height - yAxisOffset / pageScale
-            this.top = top + yAxisOffset / pageScale
+            this.height = height - parseInt(yAxisOffset / pageScale)
+            this.top = top + parseInt(yAxisOffset / pageScale)
             break
           case 'bottom':
-            this.height = height + yAxisOffset / pageScale
+            this.height = height + parseInt(yAxisOffset / pageScale)
             break
           default:
         }
