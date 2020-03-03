@@ -105,7 +105,7 @@
                 颜色
               </el-col>
               <el-col :span="18">
-                <percent-slider v-model="config.chartOption.series[0].barWidth"/>
+                <dp-color v-model="config.chartOption.color[0]"/>
               </el-col>
             </el-row>
           </el-tab-pane>
